@@ -1,0 +1,11 @@
+.bd-navbar {
+    background-color: #358ccb;
+}
+
+.bd-navbar .navbar-nav .nav-link {
+	color: white;
+}
+
+.slbImage {
+	padding: 2em 0;
+}

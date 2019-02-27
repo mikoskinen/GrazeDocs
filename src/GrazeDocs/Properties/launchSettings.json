@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GrazeDocs": {
+      "commandName": "Project",
+      "commandLineArgs": "-w"
+    }
+  }
+}
