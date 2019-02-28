@@ -7,10 +7,7 @@
             get; set;
         }
 
-        public string LivePreviewUrl
-        {
-            get; set;
-        } = "http://localhost:7552";
+        public string LivePreviewUrl { get; set; } = "http://localhost:7552";
 
         public string LivePreviewPublishFolder
         {

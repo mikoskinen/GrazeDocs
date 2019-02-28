@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 using graze;
+using graze.common;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,19 +53,9 @@ namespace GrazeDocs
             }
             else if (!string.IsNullOrWhiteSpace(configuration.InitializeFolder))
             {
-                if (File.Exists(configuration.ConfigurationFile))
-                {
-                    throw new Exception($"Directory {Path.GetDirectoryName(configuration.ConfigurationFile)} can not be initialized. It already contains the GrazeDocs configuration file {configuration.ConfigurationFile}.");
-                }
+                Initialize(configuration);
 
-                if (configuration.InitializeFolder == ".")
-                {
-                    Console.WriteLine($"Initalizing GrazeDocs on {Environment.CurrentDirectory}");
-                }
-                else
-                {
-                    Console.WriteLine($"Initalizing GrazeDocs on {configuration.InitializeFolder}");
-                }
+                Console.WriteLine($"Initialized GrazeDocs. Happy documenting!");
             }
             else if (!string.IsNullOrWhiteSpace(configuration.AddDocumentPath))
             {
@@ -78,9 +70,59 @@ namespace GrazeDocs
             }
         }
 
-        private static void ValidateConfiguration(Configuration configuration)
+        private static void Initialize(Configuration configuration)
         {
-            throw new NotImplementedException();
+            if (File.Exists(configuration.ConfigurationFile))
+            {
+                throw new Exception($"Directory {Path.GetDirectoryName(configuration.ConfigurationFile)} can not be initialized. It already contains the GrazeDocs configuration file {configuration.ConfigurationFile}.");
+            }
+
+            var folder = configuration.InitializeFolder;
+            if (string.Equals(folder, "."))
+            {
+                folder = Environment.CurrentDirectory;
+            }
+
+            Console.WriteLine($"Initalizing GrazeDocs on {folder}");
+
+            var projectName = "";
+            while (string.IsNullOrWhiteSpace(projectName))
+            {
+                Console.Write("Project name: ");
+                projectName = Console.ReadLine();
+            }
+
+            var themeFolder = Path.Combine(folder, "_theme");
+            var configurationFile = Path.Combine(folder, "configuration.xml");
+
+            var configurationTemplate = $@"<?xml version=""1.0"" encoding=""utf-8"" ?>
+<data>
+  <site>
+    <Title>{projectName}</Title>
+    <Description>{projectName}: Documentation</Description>
+	<Logo>/assets/logo.png</Logo>
+	<Footer>Copyright 2019</Footer>
+	<Navigations>
+		<Navigation Url=""/"" ExtraClass=""active"">Documentation</Navigation>
+	</Navigations>
+	<SecondaryLinks>
+		<SecondaryLink Url=""https://grazedocs.io"">Project Home</SecondaryLink>
+	</SecondaryLinks>	
+  </site>
+  <ChildPages Location="""" DefaultPageLayoutFile=""page.cshtml"" IndexLayoutFile=""pagesindex.cshtml"" IndexFileName=""all.html"" FolderPerPage=""false"" ReadmeName=""index""
+              TagsIndexLayoutFile=""tagsindex.cshtml"" TagLayoutFile=""tag.cshtml"" RelativePathPrefix=""""
+			  RssGenerate=""false"" RssFeedName="""" RssUri="""" RssAuthor="""" RssDescription="""">
+    <Groups>
+      <Group Key="""">Home</Group>
+    </Groups>
+  </ChildPages>
+</data>";
+            Directory.CreateDirectory(themeFolder);
+
+            var themeTemplateFolder = Path.Combine(configuration.GrazeBinFolder, "_theme");
+            DirCopy.Copy(themeTemplateFolder, themeFolder);
+
+            File.WriteAllText(configurationFile, configurationTemplate, Encoding.UTF8);
         }
 
         private static void PrintHelp(OptionSet options)
@@ -137,12 +179,13 @@ namespace GrazeDocs
         {
             var livePublishFolder = Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString());
             Directory.CreateDirectory(livePublishFolder);
+
             return livePublishFolder;
         }
 
         private static void SetConfiguration(Configuration configuration)
         {
-            configuration.GrazeBinFolder = typeof(graze.Core).Assembly.Location;
+            configuration.GrazeBinFolder = Path.GetDirectoryName(typeof(graze.Core).Assembly.Location);
             configuration.LivePreviewPublishFolder = null;
 
             if (Debugger.IsAttached)
