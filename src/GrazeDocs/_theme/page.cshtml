@@ -58,15 +58,7 @@
                     {
                         <div class="bd-toc-item active">
                             <a class="bd-toc-link" href="@pageGroup.DefaultLocation">
-                                @if (pageGroup.ShowTocIfOnePage == true && pageGroup.Pages.Count == 1 && pageGroup.ReplaceGroupNameWithPageNameIfOnePage)
-                                {
-                                    var firstPage = pageGroup.Pages[0];
-                                    @firstPage.Title
-                                }
-                                else
-                                {
-                                    @pageGroup.Name
-                                }
+                                @pageGroup.Name
                             </a>
 
                             @if (pageGroup.ShowChildPagesIfEmptyOrOne == true || pageGroup.Pages.Count > 1)

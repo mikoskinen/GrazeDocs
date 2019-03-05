@@ -13,6 +13,7 @@
     <Authors>Mikael Koskinen</Authors>
     <Company />
     <Product>Grazedocs</Product>
+    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>    
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +32,7 @@
 
   <ItemGroup>
     <PackageReference Include="AngleSharp" Version="0.11.0" />
-    <PackageReference Include="graze" Version="8.0.0-alpha5" />
+    <PackageReference Include="graze" Version="8.0.0-alpha8" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="1.1.0" />

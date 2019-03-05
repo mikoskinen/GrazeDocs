@@ -44,15 +44,15 @@ namespace GrazeDocs
                     {
                         try
                         {
-                            _logger.LogDebug("Running live preview");
+                            _logger.LogDebug("Running Live Preview");
                             _graze.Run();
-                            _logger.LogInformation("Live preview updated");
+                            _logger.LogInformation("Detected changes. Updating Live Preview.");
 
                             await _connection.InvokeAsync("Refresh");
                         }
                         catch (Exception e)
                         {
-                            _logger.LogError(e, "Error when updating live preview");
+                            _logger.LogError(e, "Error when updating Live Preview");
                         }
                     }
                 }

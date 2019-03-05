@@ -14,23 +14,23 @@ namespace GrazeDocs
             services.AddHostedService<DocumentCreationService>();
             services.AddSingleton((provider) =>
             {
-                var configuration = provider.GetService<Configuration>();
-                var graze = new graze.Core(new graze.Core.Parameters(configuration.ThemeFolder, configuration.LivePreviewPublishFolder, true, null, null, false, configuration.ConfigurationFile, configuration.AssetsFolder, null, 4, configuration.GrazeBinFolder));
+                var configuration = provider.GetService<Options>();
+                var graze = new graze.Core(new graze.Core.Parameters(configuration.ThemeFolder, configuration.PublishFolder, true, null, null, false, configuration.ConfigurationFile, configuration.AssetsFolder, null, 4, configuration.GrazeBinFolder));
                 return graze;
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Configuration configuration)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Options options)
         {
             app.UseMiddleware<InjectLivePreviewMiddleware>();
 
-            var options = new FileServerOptions()
+            var fileOptions = new FileServerOptions()
             {
                 EnableDirectoryBrowsing = true,
-                FileProvider = new PhysicalFileProvider(configuration.LivePreviewPublishFolder),
+                FileProvider = new PhysicalFileProvider(options.PublishFolder),
             };
 
-            app.UseFileServer(options);
+            app.UseFileServer(fileOptions);
 
             app.UseSignalR(routes =>
             {
