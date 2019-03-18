@@ -12,8 +12,13 @@
     <TypeScriptToolsVersion>3.3</TypeScriptToolsVersion>
     <Authors>Mikael Koskinen</Authors>
     <Company />
-    <Product>Grazedocs</Product>
-    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>    
+    <Product>GrazeDocs</Product>
+    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
+    <Version>1.0.0.1</Version>
+    <Description>Static site generator for building documentation sites.</Description>
+    <PackageProjectUrl>https://github.com/mikoskinen/GrazeDocs</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mikoskinen/GrazeDocs</RepositoryUrl>
+    <Copyright>2019 Mikael Koskinen</Copyright>    
   </PropertyGroup>
 
   <ItemGroup>
