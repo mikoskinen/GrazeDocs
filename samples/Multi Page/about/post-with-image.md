@@ -19,12 +19,6 @@ Content
 
 ## Another second lvel
 
-More content
-
-### Third level 
-
-how this works?
-
 ```csharp {.line-numbers}
 namespace graze.extra.markdown
 {

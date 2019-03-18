@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <site>
+    <Title>GrazeDocs: Static Documentation Site Generator</Title>
+    <Description>GrazeDocs: Static Documentation Site Generator</Description>
+	<Logo>/assets/logo.png</Logo>
+	<Footer>Copyright 2019 Mikael Koskinen</Footer>
+	<Navigations>
+		<Navigation Url="/" ExtraClass="active">Documentation</Navigation>
+	</Navigations>
+	<SecondaryLinks>
+		<SecondaryLink Url="https://grazedocs.io">Project Home</SecondaryLink>
+	</SecondaryLinks>	
+  </site>
+  <ChildPages Location="" DefaultPageLayoutFile="page.cshtml" IndexLayoutFile="pagesindex.cshtml" IndexFileName="all.html" FolderPerPage="false" ReadmeName="index"
+              TagsIndexLayoutFile="tagsindex.cshtml" TagLayoutFile="tag.cshtml" RelativePathPrefix=""
+			  RssGenerate="false" RssFeedName="" RssUri="" RssAuthor="" RssDescription="">
+    <Groups>
+      <Group Key="">Home</Group>
+    </Groups>
+  </ChildPages>
+</data>

@@ -4,6 +4,5 @@ description: This is the documentation home page
 ---
 
 ## Welcome
-Welcome to GrazeDocs.
 
-Testing the live preview
+Welcome to GrazeDocs.
