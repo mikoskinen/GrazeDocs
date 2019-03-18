@@ -43,3 +43,4 @@ For more thorough documentation, visit the GrazeDocs' home page https://grazedoc
 * Automatically generated table of contents
 * Single or multi-page documentations
 * Live preview 
+* Razor based themes
