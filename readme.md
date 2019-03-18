@@ -2,6 +2,10 @@
 
 ![GrazeDocs Logo](https://github.com/mikoskinen/GrazeDocs/raw/master/logo/grazedocs_logo_blue_front_small.png "Logo")
 
+```
+dotnet tool install -g GrazeDocs
+```
+
 GrazeDocs is a static site generator for creating documentation for your projects. The content is created using Markdown which GrazeDocs converts into a beautiful web site. GrazeDocs provides a live preview feature which allows you to focus on writing your content.  
 
 The default theme is optimized for technical documentation sites.
