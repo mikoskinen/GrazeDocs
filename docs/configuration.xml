@@ -17,6 +17,8 @@
 			  RssGenerate="false" RssFeedName="" RssUri="" RssAuthor="" RssDescription="">
     <Groups>
       <Group Key="">Home</Group>
+      <Group Key="help">Help</Group>
+      <Group Key="config">Configuration</Group>
     </Groups>
   </ChildPages>
 </data>

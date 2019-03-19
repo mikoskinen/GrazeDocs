@@ -1,13 +1,27 @@
 ---
-title: Welcome
-description: Every documentation page can optionally have a description.
-tags: grazedocs
+order: 0
+title: Welcome to GrazeDocs
+description: GrazeDocs is a Lightweight Open Source Static Documentation Generator
 ---
 
-## Introduction
+## Description
 
-This is the placeholder for your documentation.
+![GrazeDocs Logo](https://github.com/mikoskinen/GrazeDocs/raw/master/logo/grazedocs_logo_blue_front_small.png "Logo")
 
-## More information
+```markup
+dotnet tool install -g GrazeDocs
+```
 
-Please see https://grazedocs.io for more information.
+GrazeDocs is a static site generator for creating documentation for your projects. The content is created using Markdown which GrazeDocs converts into a beautiful web site. GrazeDocs provides a live preview feature which allows you to focus on writing your content.  
+
+The default theme is optimized for technical documentation sites. GrazeDocs is open source and MIT licensed.
+
+## Features
+
+* Open source with MIT license: https://github.com/mikoskinen/GrazeDocs/tree/master/samples
+* Clean and light default theme
+* Markdown to documentation
+* Automatically generated table of contents
+* Single or multi-page documentations
+* Live preview 
+* Razor based themes
