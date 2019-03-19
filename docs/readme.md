@@ -16,9 +16,11 @@ GrazeDocs is a static site generator for creating documentation for your project
 
 The default theme is optimized for technical documentation sites. GrazeDocs is open source and MIT licensed.
 
+Source code is available through https://github.com/mikoskinen/GrazeDocs
+
 ## Features
 
-* Open source with MIT license: https://github.com/mikoskinen/GrazeDocs/tree/master/samples
+* Open source with MIT license
 * Clean and light default theme
 * Markdown to documentation
 * Automatically generated table of contents
