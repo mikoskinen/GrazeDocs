@@ -116,13 +116,46 @@
 
                 <div class="d-none d-xl-block col-xl-2 bd-toc">
                     <ul class="section-nav">
+                            <li class="toc-entry toc-h2"><a href="#basics">Basics</a></li>
+                            <li class="toc-entry toc-h2"><a href="#example">Example</a></li>
                     </ul>
                 </div>
 
             <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
                 <h1 class="bd-title" id="content">Config File</h1>
-                <p class="bd-lead">Each page of the documentation is part of a group. You can use GrazeDocs to decide the group automatically based on the page's folder or to manually set the group.</p>
-                
+                <p class="bd-lead">Each documentation site has a configuration file which can be used to configure site's details.</p>
+                <h2 id="basics">Basics</h2>
+<p>Each GrazeDocs documentation site must have a configuration.xml. This file is used to define the basic required information for the site, like its name and theme.</p>
+<p>GrazeDocs uses the configuration format provided by graze: <a href="https://github.com/mikoskinen/graze">https://github.com/mikoskinen/graze</a></p>
+<h2 id="example">Example</h2>
+<p>Example configuration for a multi-page documentation site:</p>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;data&gt;
+  &lt;site&gt;
+    &lt;Title&gt;Graze&lt;/Title&gt;
+    &lt;Description&gt;Graze: Static site generator using Razor&lt;/Description&gt;
+	&lt;Logo&gt;/assets/logo.png&lt;/Logo&gt;
+	&lt;Footer&gt;Copyright 2019 Mikael Koskinen&lt;/Footer&gt;
+	&lt;Navigations&gt;
+		&lt;Navigation Url="/" ExtraClass="active"&gt;Documentation&lt;/Navigation&gt;
+	&lt;/Navigations&gt;
+	&lt;SecondaryLinks&gt;
+		&lt;SecondaryLink Url="https://grazedocs.io"&gt;Project Home&lt;/SecondaryLink&gt;
+		&lt;SecondaryLink Url="https://github.com/mikoskinen/graze"&gt;Graze&lt;/SecondaryLink&gt;
+	&lt;/SecondaryLinks&gt;	
+  &lt;/site&gt;
+  &lt;ChildPages Location="" DefaultPageLayoutFile="page.cshtml" IndexLayoutFile="pagesindex.cshtml" IndexFileName="all.html" FolderPerPage="false" ReadmeName="index"
+              TagsIndexLayoutFile="tagsindex.cshtml" TagLayoutFile="tag.cshtml" RelativePathPrefix=""
+			  RssGenerate="false" RssFeedName="" RssUri="" RssAuthor="" RssDescription=""&gt;
+    &lt;Groups&gt;
+      &lt;Group Key=""&gt;Home&lt;/Group&gt;
+      &lt;Group Key="architecture"&gt;My Architecture&lt;/Group&gt;
+      &lt;Group Key="about"&gt;About&lt;/Group&gt;
+    &lt;/Groups&gt;
+  &lt;/ChildPages&gt;
+&lt;/data&gt;
+</code></pre>
+
 
                 <div class="row">
                     <div class="col">
