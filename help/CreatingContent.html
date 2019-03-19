@@ -48,7 +48,7 @@
                             </a>
 
                                 <ul class="nav bd-sidenav">
-                                        <li class="active">
+                                        <li class="">
                                             <a href="/index.html">
                                                 Welcome to GrazeDocs
                                             </a>
@@ -66,7 +66,7 @@
                             </a>
 
                                 <ul class="nav bd-sidenav">
-                                        <li class="">
+                                        <li class="active">
                                             <a href="/help/CreatingContent.html">
                                                 Creating Content
                                             </a>
@@ -116,37 +116,31 @@
 
                 <div class="d-none d-xl-block col-xl-2 bd-toc">
                     <ul class="section-nav">
-                            <li class="toc-entry toc-h2"><a href="#description">Description</a></li>
-                            <li class="toc-entry toc-h2"><a href="#features">Features</a></li>
+                            <li class="toc-entry toc-h2"><a href="#markdown-based-content">Markdown based content</a></li>
+                            <li class="toc-entry toc-h2"><a href="#single-page-documentation">Single-Page Documentation</a></li>
+                            <li class="toc-entry toc-h2"><a href="#multi-page-documentation">Multi-Page Documentation</a></li>
+                            <li class="toc-entry toc-h2"><a href="#samples">Samples</a></li>
                     </ul>
                 </div>
 
             <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
-                <h1 class="bd-title" id="content">Welcome to GrazeDocs</h1>
-                <p class="bd-lead">GrazeDocs is a Lightweight Open Source Static Documentation Generator</p>
-                <h2 id="description">Description</h2>
-<p><a href="https://github.com/mikoskinen/GrazeDocs/raw/master/logo/grazedocs_logo_blue_front_small.png" class="lightbox"><img src="https://github.com/mikoskinen/GrazeDocs/raw/master/logo/grazedocs_logo_blue_front_small.png" class="img-fluid" alt="GrazeDocs Logo" title="Logo"></a></p>
-<pre><code class="language-markup">dotnet tool install -g GrazeDocs
-</code></pre>
-<p>GrazeDocs is a static site generator for creating documentation for your projects. The content is created using Markdown which GrazeDocs converts into a beautiful web site. GrazeDocs provides a live preview feature which allows you to focus on writing your content.</p>
-<p>The default theme is optimized for technical documentation sites. GrazeDocs is open source and MIT licensed.</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>Open source with MIT license: <a href="https://github.com/mikoskinen/GrazeDocs/tree/master/samples">https://github.com/mikoskinen/GrazeDocs/tree/master/samples</a></li>
-<li>Clean and light default theme</li>
-<li>Markdown to documentation</li>
-<li>Automatically generated table of contents</li>
-<li>Single or multi-page documentations</li>
-<li>Live preview</li>
-<li>Razor based themes</li>
-</ul>
+                <h1 class="bd-title" id="content">Creating Content</h1>
+                <p class="bd-lead">GrazeDocs uses Markdown files as the source and generates the HTML from them.</p>
+                <h2 id="markdown-based-content">Markdown based content</h2>
+<p>Each documentation page is a Markdown-file. Regular markdown is used to define the content. GrazeDocs then takes the page, combines it with the theme and creates the end result.</p>
+<h2 id="single-page-documentation">Single-Page Documentation</h2>
+<p>You can define all your documentation in a single page. GrazeDocs uses the headers of the content to create a table of contents and each header is displayed as a navigation link.</p>
+<h2 id="multi-page-documentation">Multi-Page Documentation</h2>
+<p>Often it's good to split the documentation into multiple files and into multiple folders. In these situations each page is part of a group and pages can be ordered inside the groups.</p>
+<h2 id="samples">Samples</h2>
+<p>You can find single-page and multi-page samples from the project's repository: <a href="https://github.com/mikoskinen/GrazeDocs/tree/master/samples">https://github.com/mikoskinen/GrazeDocs/tree/master/samples</a></p>
 
 
                 <div class="row">
                     <div class="col">
                     </div>
                     <div class="col text-right">
-                            <a class="text-muted" href="/QuickStart.html">Next: Quick Start</a>
+                            <a class="text-muted" href="/help/LivePreview.html">Next: Live Preview</a>
                     </div>
                 </div>
 

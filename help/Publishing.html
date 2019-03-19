@@ -48,7 +48,7 @@
                             </a>
 
                                 <ul class="nav bd-sidenav">
-                                        <li class="active">
+                                        <li class="">
                                             <a href="/index.html">
                                                 Welcome to GrazeDocs
                                             </a>
@@ -76,7 +76,7 @@
                                                 Live Preview
                                             </a>
                                         </li>
-                                        <li class="">
+                                        <li class="active">
                                             <a href="/help/Publishing.html">
                                                 Publishing
                                             </a>
@@ -116,37 +116,23 @@
 
                 <div class="d-none d-xl-block col-xl-2 bd-toc">
                     <ul class="section-nav">
-                            <li class="toc-entry toc-h2"><a href="#description">Description</a></li>
-                            <li class="toc-entry toc-h2"><a href="#features">Features</a></li>
                     </ul>
                 </div>
 
             <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
-                <h1 class="bd-title" id="content">Welcome to GrazeDocs</h1>
-                <p class="bd-lead">GrazeDocs is a Lightweight Open Source Static Documentation Generator</p>
-                <h2 id="description">Description</h2>
-<p><a href="https://github.com/mikoskinen/GrazeDocs/raw/master/logo/grazedocs_logo_blue_front_small.png" class="lightbox"><img src="https://github.com/mikoskinen/GrazeDocs/raw/master/logo/grazedocs_logo_blue_front_small.png" class="img-fluid" alt="GrazeDocs Logo" title="Logo"></a></p>
-<pre><code class="language-markup">dotnet tool install -g GrazeDocs
+                <h1 class="bd-title" id="content">Publishing</h1>
+                <p class="bd-lead">Use Publish to Convert your Markdown files into Documentation</p>
+                <p>After your happy with the documentation, use GrazeDocs -p to publish your complete site:</p>
+<pre><code class="language-markup">GrazeDocs -p
 </code></pre>
-<p>GrazeDocs is a static site generator for creating documentation for your projects. The content is created using Markdown which GrazeDocs converts into a beautiful web site. GrazeDocs provides a live preview feature which allows you to focus on writing your content.</p>
-<p>The default theme is optimized for technical documentation sites. GrazeDocs is open source and MIT licensed.</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>Open source with MIT license: <a href="https://github.com/mikoskinen/GrazeDocs/tree/master/samples">https://github.com/mikoskinen/GrazeDocs/tree/master/samples</a></li>
-<li>Clean and light default theme</li>
-<li>Markdown to documentation</li>
-<li>Automatically generated table of contents</li>
-<li>Single or multi-page documentations</li>
-<li>Live preview</li>
-<li>Razor based themes</li>
-</ul>
+<p>Publishing runs the Markdown files through the theme and creates site. Publish also takes care of copying the assets and the theme's files.</p>
 
 
                 <div class="row">
                     <div class="col">
+                            <a class="text-muted" href="/help/LivePreview.html">Previous: Live Preview</a>
                     </div>
                     <div class="col text-right">
-                            <a class="text-muted" href="/QuickStart.html">Next: Quick Start</a>
                     </div>
                 </div>
 

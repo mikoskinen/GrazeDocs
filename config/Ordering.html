@@ -48,7 +48,7 @@
                             </a>
 
                                 <ul class="nav bd-sidenav">
-                                        <li class="active">
+                                        <li class="">
                                             <a href="/index.html">
                                                 Welcome to GrazeDocs
                                             </a>
@@ -99,7 +99,7 @@
                                                 Page Groups
                                             </a>
                                         </li>
-                                        <li class="">
+                                        <li class="active">
                                             <a href="/config/Ordering.html">
                                                 Ordering
                                             </a>
@@ -116,37 +116,35 @@
 
                 <div class="d-none d-xl-block col-xl-2 bd-toc">
                     <ul class="section-nav">
-                            <li class="toc-entry toc-h2"><a href="#description">Description</a></li>
-                            <li class="toc-entry toc-h2"><a href="#features">Features</a></li>
+                            <li class="toc-entry toc-h2"><a href="#ordering-pages">Ordering pages</a></li>
+                            <li class="toc-entry toc-h2"><a href="#ordering-groups">Ordering Groups</a></li>
                     </ul>
                 </div>
 
             <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
-                <h1 class="bd-title" id="content">Welcome to GrazeDocs</h1>
-                <p class="bd-lead">GrazeDocs is a Lightweight Open Source Static Documentation Generator</p>
-                <h2 id="description">Description</h2>
-<p><a href="https://github.com/mikoskinen/GrazeDocs/raw/master/logo/grazedocs_logo_blue_front_small.png" class="lightbox"><img src="https://github.com/mikoskinen/GrazeDocs/raw/master/logo/grazedocs_logo_blue_front_small.png" class="img-fluid" alt="GrazeDocs Logo" title="Logo"></a></p>
-<pre><code class="language-markup">dotnet tool install -g GrazeDocs
+                <h1 class="bd-title" id="content">Ordering</h1>
+                <p class="bd-lead"></p>
+                <h2 id="ordering-pages">Ordering pages</h2>
+<p>By default the pages are ordered by their filenames. If you want to manually order pages, you can use "order" metadata:</p>
+<p><a href="2019-03-19-11-35-43.png" class="lightbox"><img src="2019-03-19-11-35-43.png" class="img-fluid" alt=""></a></p>
+<p>Ordering allows you to make sure that for example the "Getting started" documentation can be found from the top.</p>
+<h2 id="ordering-groups">Ordering Groups</h2>
+<p>Each page is part of a group. Group details are defined in the configuration.xml:</p>
+<pre><code class="language-xml">    &lt;Groups&gt;
+      &lt;Group Key=""&gt;Home&lt;/Group&gt;
+      &lt;Group Key="architecture"&gt;My Architecture&lt;/Group&gt;
+      &lt;Group Key="about"&gt;About&lt;/Group&gt;
+    &lt;/Groups&gt;
 </code></pre>
-<p>GrazeDocs is a static site generator for creating documentation for your projects. The content is created using Markdown which GrazeDocs converts into a beautiful web site. GrazeDocs provides a live preview feature which allows you to focus on writing your content.</p>
-<p>The default theme is optimized for technical documentation sites. GrazeDocs is open source and MIT licensed.</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>Open source with MIT license: <a href="https://github.com/mikoskinen/GrazeDocs/tree/master/samples">https://github.com/mikoskinen/GrazeDocs/tree/master/samples</a></li>
-<li>Clean and light default theme</li>
-<li>Markdown to documentation</li>
-<li>Automatically generated table of contents</li>
-<li>Single or multi-page documentations</li>
-<li>Live preview</li>
-<li>Razor based themes</li>
-</ul>
+<p>In the above example, the Home group is the first, architecture is the second and so on.</p>
 
 
                 <div class="row">
                     <div class="col">
+                            <a class="text-muted" href="/config/PageGroups.html">Previous: Page Groups</a>
                     </div>
                     <div class="col text-right">
-                            <a class="text-muted" href="/QuickStart.html">Next: Quick Start</a>
+                            <a class="text-muted" href="/config/Theming.html">Next: Theming</a>
                     </div>
                 </div>
 
