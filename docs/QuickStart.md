@@ -3,6 +3,9 @@ title: Quick Start
 order: 1
 description: To get started with GrazeDocs, you have to do three things: 1) Install the tool, 2) Initialize the documentation folder and 3) Create and publish the documentation.
 ---
+
+GrazeDocs is a static site generator for creating a documentation site for your project. GrazeDocs converts Markdown-based content into full HTML site.
+
 ## Install
 
 GrazeDocs is available as a global tool for .NET Core. To install:
