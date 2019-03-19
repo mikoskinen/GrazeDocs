@@ -48,7 +48,7 @@
                             </a>
 
                                 <ul class="nav bd-sidenav">
-                                        <li class="">
+                                        <li class="active">
                                             <a href="/QuickStart.html">
                                                 Quick Start
                                             </a>
@@ -88,7 +88,7 @@
                                                 Theming
                                             </a>
                                         </li>
-                                        <li class="active">
+                                        <li class="">
                                             <a href="/index.html">
                                                 Welcome
                                             </a>
@@ -100,25 +100,38 @@
 
                 <div class="d-none d-xl-block col-xl-2 bd-toc">
                     <ul class="section-nav">
-                            <li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
-                            <li class="toc-entry toc-h2"><a href="#more-information">More information</a></li>
+                            <li class="toc-entry toc-h2"><a href="#install">Install</a></li>
+                            <li class="toc-entry toc-h2"><a href="#initialize">Initialize</a></li>
+                            <li class="toc-entry toc-h2"><a href="#publish">Publish</a></li>
                     </ul>
                 </div>
 
             <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
-                <h1 class="bd-title" id="content">Welcome</h1>
-                <p class="bd-lead">Every documentation page can optionally have a description.</p>
-                <h2 id="introduction">Introduction</h2>
-<p>This is the placeholder for your documentation.</p>
-<h2 id="more-information">More information</h2>
-<p>Please see <a href="https://grazedocs.io">https://grazedocs.io</a> for more information.</p>
+                <h1 class="bd-title" id="content">Quick Start</h1>
+                <p class="bd-lead">To get started with GrazeDocs, you have to do three things: 1) Install the tool, 2) Initialize the documentation folder and 3) Create and publish the documentation.</p>
+                <h2 id="install">Install</h2>
+<p>GrazeDocs is available as a global tool for .NET Core. To install:</p>
+<pre><code class="line-numbers language-csharp">dotnet tool install -g GrazeDocs
+</code></pre>
+<p><a href="https://github.com/mikoskinen/GrazeDocs/raw/master/docs/installation.gif" class="lightbox"><img src="https://github.com/mikoskinen/GrazeDocs/raw/master/docs/installation.gif" class="img-fluid" alt="GrazeDocs Installation" title="Installation"></a></p>
+<h2 id="initialize">Initialize</h2>
+<p>To start creating your documentation, use GrazeDocs -i . to initialize documentation into the current folder:</p>
+<pre><code class="line-numbers language-csharp">GrazeDocs -i .
+</code></pre>
+<p><a href="https://github.com/mikoskinen/GrazeDocs/raw/master/docs/init.gif" class="lightbox"><img src="https://github.com/mikoskinen/GrazeDocs/raw/master/docs/init.gif" class="img-fluid" alt="GrazeDocs Init" title="Init"></a></p>
+<p>With GrazeDocs -i, you can initialize the folder with readme.md which can work as the starting point for your project's documentation.</p>
+<h2 id="publish">Publish</h2>
+<p>After your happy with the documentation, use GrazeDocs -p to publish your complete site:</p>
+<pre><code class="line-numbers language-csharp">GrazeDocs -p
+</code></pre>
+<p><a href="https://github.com/mikoskinen/GrazeDocs/raw/master/docs/publish.gif" class="lightbox"><img src="https://github.com/mikoskinen/GrazeDocs/raw/master/docs/publish.gif" class="img-fluid" alt="GrazeDocs Publish" title="Publish"></a></p>
 
 
                 <div class="row">
                     <div class="col">
-                            <a class="text-muted" href="/Theming.html">Previous: Theming</a>
                     </div>
                     <div class="col text-right">
+                            <a class="text-muted" href="/Configuration.html">Next: Configuration</a>
                     </div>
                 </div>
 
