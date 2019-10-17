@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Http;
 
 namespace GrazeDocs
 {
-    public class InjectLivePreviewMiddleware
+    public class LivePreviewMiddleware
     {
         private const string HtmlContentType = "text/html";
         private const string XhtmlContentType = "application/xhtml+xml";
         private readonly RequestDelegate _next;
 
-        public InjectLivePreviewMiddleware(RequestDelegate next)
+        public LivePreviewMiddleware(RequestDelegate next)
         {
             _next = next;
         }
@@ -98,12 +98,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl(""/.livepreview"").b
             return sw.ToString();
         }
 
-        public static MemoryStream GenerateStreamFromString(string value)
-        {
-            return new MemoryStream(Encoding.UTF8.GetBytes(value ?? ""));
-        }
-
-        public static bool IsSupportedContentType(string contentType)
+        private static bool IsSupportedContentType(string contentType)
         {
             if (string.IsNullOrEmpty(contentType))
             {

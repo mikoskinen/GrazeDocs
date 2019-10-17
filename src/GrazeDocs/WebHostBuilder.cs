@@ -8,7 +8,7 @@ namespace GrazeDocs
 {
     public class WebHostBuilder
     {
-        public static IWebHostBuilder CreateWebHostBuilder(Options options)
+        public static IWebHostBuilder CreateWebHostBuilder(GrazeDocsOptions options)
         {
             var loggerConfiguration = new LoggerConfiguration()
                 .Enrich.FromLogContext()
@@ -38,7 +38,7 @@ namespace GrazeDocs
 
             result.ConfigureServices(x =>
             {
-                x.AddSingleton<Options>(options);
+                x.AddSingleton<GrazeDocsOptions>(options);
             });
 
             return result;

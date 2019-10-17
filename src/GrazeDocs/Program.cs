@@ -11,7 +11,7 @@ namespace GrazeDocs
     {
         public static async Task Main(string[] args)
         {
-            var options = new Options();
+            var options = new GrazeDocsOptions();
             var showHelp = false;
 
             var optionSet = new OptionSet
@@ -78,7 +78,7 @@ namespace GrazeDocs
         }
 
 
-        private static void SetOptions(Options options)
+        private static void SetOptions(GrazeDocsOptions options)
         {
             options.GrazeBinFolder = Path.GetDirectoryName(typeof(graze.Core).Assembly.Location);
             options.PublishFolder = null;

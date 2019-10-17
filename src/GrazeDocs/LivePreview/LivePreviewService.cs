@@ -13,7 +13,7 @@ namespace GrazeDocs.LivePreview
 {
     public class LivePreviewService
     {
-        public static async Task RunLivePreview(Options options)
+        public static async Task RunLivePreview(GrazeDocsOptions options)
         {
             var livePublishFolder = CreateLivePublishFolder();
             options.PublishFolder = livePublishFolder;

@@ -9,7 +9,7 @@ namespace GrazeDocs
 {
     public class Publisher
     {
-        public static void Publish(Options options)
+        public static void Publish(GrazeDocsOptions options)
         {
             using (var host = WebHostBuilder.CreateWebHostBuilder(options).Build())
             {

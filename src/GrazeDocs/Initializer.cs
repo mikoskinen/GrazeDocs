@@ -7,7 +7,7 @@ namespace GrazeDocs
 {
     public class Initializer
     {
-        public static bool Initialize(Options options)
+        public static bool Initialize(GrazeDocsOptions options)
         {
             if (File.Exists(options.ConfigurationFile))
             {
@@ -20,7 +20,7 @@ namespace GrazeDocs
                 folder = Environment.CurrentDirectory;
             }
 
-            Console.WriteLine($"Initalizing GrazeDocs on {folder}");
+            Console.WriteLine($"Initializing GrazeDocs on {folder}");
 
             var projectName = "";
             while (string.IsNullOrWhiteSpace(projectName))
@@ -50,7 +50,7 @@ namespace GrazeDocs
 	</SecondaryLinks>	
   </site>
   <ChildPages Location="""" DefaultPageLayoutFile=""page.cshtml"" IndexLayoutFile=""pagesindex.cshtml"" IndexFileName=""all.html"" FolderPerPage=""false"" ReadmeName=""index""
-              TagsIndexLayoutFile=""tagsindex.cshtml"" TagLayoutFile=""tag.cshtml"" RelativePathPrefix=""""
+              TagsIndexLayoutFile=""tagsindex.cshtml"" TagLayoutFile=""tag.cshtml"" RelativePathPrefix="""" IsRoot=""true""
 			  RssGenerate=""false"" RssFeedName="""" RssUri="""" RssAuthor="""" RssDescription="""">
     <Groups>
     </Groups>

@@ -15,9 +15,9 @@ namespace GrazeDocs
 
         public static BlockingCollection<string> ChangedFiles = new BlockingCollection<string>(1);
         private readonly ILogger<DocumentationWatcherService> _logger;
-        private readonly Options _configuration;
+        private readonly GrazeDocsOptions _configuration;
 
-        public DocumentationWatcherService(ILogger<DocumentationWatcherService> logger, Options configuration)
+        public DocumentationWatcherService(ILogger<DocumentationWatcherService> logger, GrazeDocsOptions configuration)
         {
             _logger = logger;
             _configuration = configuration;
