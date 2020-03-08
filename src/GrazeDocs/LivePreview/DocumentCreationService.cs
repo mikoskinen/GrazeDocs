@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GrazeDocs
+namespace GrazeDocs.LivePreview
 {
     public class DocumentCreationService : BackgroundService
     {
@@ -18,7 +18,7 @@ namespace GrazeDocs
         private readonly IServerAddressesFeature _serverAddressesFeature;
         private HubConnection _connection;
 
-        public DocumentCreationService(ILogger<DocumentCreationService> logger, graze.Core graze, IServer server)
+        public DocumentCreationService(ILogger<DocumentCreationService> logger, Core graze, IServer server)
         {
             _logger = logger;
             _graze = graze;
@@ -28,7 +28,9 @@ namespace GrazeDocs
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var livePreviewNotifyUrl = $"{_serverAddressesFeature.Addresses.First()}/.livepreview";
-            _logger.LogDebug("Connecting to live preview notification url {livePreviewNotifyUrl}. The url is used to push notifications to web browser", livePreviewNotifyUrl);
+            _logger.LogDebug(
+                "Connecting to live preview notification url {livePreviewNotifyUrl}. The url is used to push notifications to web browser",
+                livePreviewNotifyUrl);
 
             _connection = new HubConnectionBuilder()
                 .WithUrl(livePreviewNotifyUrl)
@@ -40,7 +42,8 @@ namespace GrazeDocs
             {
                 try
                 {
-                    foreach (var changedFile in DocumentationWatcherService.ChangedFiles.GetConsumingEnumerable(stoppingToken))
+                    foreach (var changedFile in DocumentationWatcherService.ChangedFiles.GetConsumingEnumerable(
+                        stoppingToken))
                     {
                         try
                         {
@@ -58,9 +61,8 @@ namespace GrazeDocs
                 }
                 catch (OperationCanceledException)
                 {
-                        // Swallow
-                    }
-
+                    // Swallow
+                }
             }, stoppingToken);
         }
     }

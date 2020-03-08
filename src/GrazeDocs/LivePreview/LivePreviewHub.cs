@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 
-namespace GrazeDocs
+namespace GrazeDocs.LivePreview
 {
     public class LivePreviewHub : Hub
     {

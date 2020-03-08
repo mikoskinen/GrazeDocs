@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GrazeDocs
+namespace GrazeDocs.LivePreview
 {
     public class DocumentationWatcherService : BackgroundService
     {
@@ -48,7 +48,7 @@ namespace GrazeDocs
 
         protected void OnFileChanged(object sender, FileSystemEventArgs e)
         {
-            if ((DateTime.Now - _lastChanged) < TimeSpan.FromSeconds(1))
+            if (DateTime.Now - _lastChanged < TimeSpan.FromSeconds(1))
             {
                 return;
             }
@@ -66,8 +66,7 @@ namespace GrazeDocs
 
             _fileWatcher = new FileSystemWatcher(watchedFolder, "*.md*")
             {
-                IncludeSubdirectories = true,
-                EnableRaisingEvents = true,
+                IncludeSubdirectories = true, EnableRaisingEvents = true,
             };
 
             _fileWatcher.NotifyFilter = NotifyFilters.LastWrite;

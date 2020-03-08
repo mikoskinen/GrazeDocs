@@ -24,7 +24,8 @@ namespace GrazeDocs.LivePreview
 
                 try
                 {
-                    logger.LogInformation($"Starting GrazeDocs Live Preview on the following address: {options.LivePreviewUrl}");
+                    logger.LogInformation(
+                        $"Starting GrazeDocs Live Preview on the following address: {options.LivePreviewUrl}");
 
                     var graze = host.Services.GetService<Core>();
                     logger.LogDebug($"Creating initial live preview to {livePublishFolder}");
@@ -65,7 +66,7 @@ namespace GrazeDocs.LivePreview
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                Process.Start("xdg-open", url);  // Works ok on linux
+                Process.Start("xdg-open", url); // Works ok on linux
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
@@ -78,13 +79,10 @@ namespace GrazeDocs.LivePreview
 
         private static string CreateLivePublishFolder()
         {
-            var livePublishFolder = Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString());
+            var livePublishFolder = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             Directory.CreateDirectory(livePublishFolder);
 
             return livePublishFolder;
         }
-
     }
-
-
 }

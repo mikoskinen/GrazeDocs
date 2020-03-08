@@ -15,14 +15,20 @@ namespace GrazeDocs
             var showHelp = false;
 
             var optionSet = new OptionSet
-                              {
-                                      {"i|init=", "Initialize GrazeDocs to {DIRECTORY}. Use . for current directory.", x => options.InitializeFolder = x},
-                                      {"p|publish", "Publish documents to publish-directory.", x => options.Publish = true},
-                                      {"w|watch|live", "Start GrazeDocs Live Preview.", x => options.LivePreviewEnabled = true},
-                                      {"t|port=", "Live Preview HTTP {PORT}. Default is 7552.", x => options.LivePreviewUrl = $"http://localhost:{x}"},
-                                      {"v|verbose", "Verbose logging.", x => options.VerboseLogging = true},
-                                      { "h|?|help",  "Show help.", x => showHelp = true},
-                              };
+            {
+                {
+                    "i|init=", "Initialize GrazeDocs to {DIRECTORY}. Use . for current directory.",
+                    x => options.InitializeFolder = x
+                },
+                {"p|publish", "Publish documents to publish-directory.", x => options.Publish = true},
+                {"w|watch|live", "Start GrazeDocs Live Preview.", x => options.LivePreviewEnabled = true},
+                {
+                    "t|port=", "Live Preview HTTP {PORT}. Default is 7552.",
+                    x => options.LivePreviewUrl = $"http://localhost:{x}"
+                },
+                {"v|verbose", "Verbose logging.", x => options.VerboseLogging = true},
+                {"h|?|help", "Show help.", x => showHelp = true},
+            };
 
             optionSet.Parse(args);
             SetOptions(options);
@@ -35,7 +41,8 @@ namespace GrazeDocs
             {
                 if (!File.Exists(options.ConfigurationFile))
                 {
-                    throw new Exception($"Directory {Path.GetDirectoryName(options.ConfigurationFile)} is not a valid GrazeDocs directory. Missing configuration file {options.ConfigurationFile}. Use grazedocs init to initialize the documentation directory.");
+                    throw new Exception(
+                        $"Directory {Path.GetDirectoryName(options.ConfigurationFile)} is not a valid GrazeDocs directory. Missing configuration file {options.ConfigurationFile}. Use grazedocs init to initialize the documentation directory.");
                 }
 
                 await LivePreviewService.RunLivePreview(options);

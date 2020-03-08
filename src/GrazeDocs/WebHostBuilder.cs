@@ -38,7 +38,7 @@ namespace GrazeDocs
 
             result.ConfigureServices(x =>
             {
-                x.AddSingleton<GrazeDocsOptions>(options);
+                x.AddSingleton(options);
             });
 
             return result;

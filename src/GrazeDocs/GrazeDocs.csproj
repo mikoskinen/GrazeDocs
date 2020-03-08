@@ -3,7 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <IsPackable>true</IsPackable>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>grazedocs</ToolCommandName>
@@ -11,14 +12,17 @@
     <LangVersion>7.3</LangVersion>
     <TypeScriptToolsVersion>3.3</TypeScriptToolsVersion>
     <Authors>Mikael Koskinen</Authors>
-    <Company />
     <Product>GrazeDocs</Product>
     <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
-    <Version>1.0.0.1</Version>
     <Description>Static site generator for building documentation sites.</Description>
-    <PackageProjectUrl>https://github.com/mikoskinen/GrazeDocs</PackageProjectUrl>
+    <PackageProjectUrl>https://grazedocs.io</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mikoskinen/GrazeDocs</RepositoryUrl>
-    <Copyright>2019 Mikael Koskinen</Copyright>    
+    <Copyright>2020 Mikael Koskinen</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageTags>static site generator;documentation:razor</PackageTags>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerMinimumMajorMinor>2.0</MinVerMinimumMajorMinor>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,12 +42,10 @@
   <ItemGroup>
     <PackageReference Include="AngleSharp" Version="0.11.0" />
     <PackageReference Include="graze" Version="8.0.0-rc1" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="2.2.10" />
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="MinVer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -102,6 +104,10 @@
     <None Update="_theme\assets\theme.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="logo.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
 
 </Project>

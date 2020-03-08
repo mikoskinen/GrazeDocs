@@ -11,7 +11,8 @@ namespace GrazeDocs
         {
             if (File.Exists(options.ConfigurationFile))
             {
-                throw new Exception($"Directory {Path.GetDirectoryName(options.ConfigurationFile)} can not be initialized. It already contains the GrazeDocs configuration file {options.ConfigurationFile}.");
+                throw new Exception(
+                    $"Directory {Path.GetDirectoryName(options.ConfigurationFile)} can not be initialized. It already contains the GrazeDocs configuration file {options.ConfigurationFile}.");
             }
 
             var folder = options.InitializeFolder;
@@ -83,6 +84,5 @@ Please see https://grazedocs.io for more information.");
 
             return addInitialReadme;
         }
-
     }
 }

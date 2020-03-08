@@ -4,55 +4,69 @@
     {
         public bool LivePreviewEnabled
         {
-            get; set;
+            get;
+            set;
         }
 
-        public string LivePreviewUrl { get; set; } = "http://localhost:7552";
+        public string LivePreviewUrl
+        {
+            get;
+            set;
+        } = "http://localhost:7552";
 
         public string PublishFolder
         {
-            get; set;
+            get;
+            set;
         }
 
         public string InitializeFolder
         {
-            get; set;
+            get;
+            set;
         }
 
         public bool Publish
         {
-            get; set;
+            get;
+            set;
         }
 
 
         public string AddDocumentPath
         {
-            get; set;
+            get;
+            set;
         }
 
         public string ThemeFolder
         {
-            get; set;
+            get;
+            set;
         }
 
         public string ConfigurationFile
         {
-            get; set;
+            get;
+            set;
         }
 
         public string AssetsFolder
         {
-            get; set;
+            get;
+            set;
         }
 
         public string GrazeBinFolder
         {
-            get; set;
+            get;
+            set;
         }
 
         public bool VerboseLogging
         {
-            get; set;
+            get;
+            set;
         }
     }
 }
