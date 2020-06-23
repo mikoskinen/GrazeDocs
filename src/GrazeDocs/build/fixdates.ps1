@@ -1,0 +1,1 @@
+gci -path 'bin\' -rec -file *.dll | Where-Object {$_.LastWriteTime -lt (Get-Date).AddYears(-20)} | %  { try { $_.LastWriteTime = '01/01/2000 00:00:00' } catch {} }

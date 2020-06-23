@@ -10,6 +10,7 @@ namespace GrazeDocs
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
             services.AddRouting();
             services.AddSignalR();
             services.AddHostedService<DocumentationWatcherService>();

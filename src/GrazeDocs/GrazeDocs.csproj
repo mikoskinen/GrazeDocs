@@ -9,8 +9,6 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>grazedocs</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
-    <LangVersion>7.3</LangVersion>
-    <TypeScriptToolsVersion>3.3</TypeScriptToolsVersion>
     <Authors>Mikael Koskinen</Authors>
     <Product>GrazeDocs</Product>
     <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
@@ -24,6 +22,10 @@
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <MinVerMinimumMajorMinor>2.0</MinVerMinimumMajorMinor>
   </PropertyGroup>
+
+  <Target Name="FixDates" BeforeTargets="GenerateNuspec">
+    <Exec Command="PowerShell -NonInteractive -executionpolicy Unrestricted -command &quot;&amp; { build\fixdates.ps1 } &quot;" LogStandardErrorAsError="true" ContinueOnError="false" />    
+  </Target>  
 
   <ItemGroup>
     <Compile Remove="nupkg\**" />
@@ -41,11 +43,12 @@
 
   <ItemGroup>
     <PackageReference Include="AngleSharp" Version="0.11.0" />
-    <PackageReference Include="graze" Version="8.0.0-rc1" />
+    <PackageReference Include="graze" Version="9.0.0-rc1" />
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="MinVer" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.3"/>
   </ItemGroup>
 
   <ItemGroup>
