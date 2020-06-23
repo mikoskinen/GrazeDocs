@@ -7,7 +7,7 @@ order: 0
 ---
 Page content can be copied into the content-folder. This folder is automatically copied to the output folder when the pages are generated.
 
-![versions2022](content/Adafy_Hori.png)
+![versions2022](/content/Adafy_Hori.png)
 
 # Test header {.myclass}
 
