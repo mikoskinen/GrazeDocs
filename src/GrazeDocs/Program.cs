@@ -16,18 +16,13 @@ namespace GrazeDocs
 
             var optionSet = new OptionSet
             {
-                {
-                    "i|init=", "Initialize GrazeDocs to {DIRECTORY}. Use . for current directory.",
-                    x => options.InitializeFolder = x
-                },
-                {"p|publish", "Publish documents to publish-directory.", x => options.Publish = true},
-                {"w|watch|live", "Start GrazeDocs Live Preview.", x => options.LivePreviewEnabled = true},
-                {
-                    "t|port=", "Live Preview HTTP {PORT}. Default is 7552.",
-                    x => options.LivePreviewUrl = $"http://localhost:{x}"
-                },
-                {"v|verbose", "Verbose logging.", x => options.VerboseLogging = true},
-                {"h|?|help", "Show help.", x => showHelp = true},
+                { "i|init=", "Initialize GrazeDocs to {DIRECTORY}. Use . for current directory.", x => options.InitializeFolder = x },
+                { "p|publish", "Publish documents to publish-directory.", x => options.Publish = true },
+                { "w|watch|live", "Start GrazeDocs Live Preview.", x => options.LivePreviewEnabled = true },
+                { "t|port=", "Live Preview HTTP {PORT}. Default is 7552.", x => options.LivePreviewUrl = $"http://localhost:{x}" },
+                { "v|verbose", "Verbose logging.", x => options.VerboseLogging = true },
+                { "r|root=", "Root directory.", x => options.RootDirectory = x },
+                { "h|?|help", "Show help.", x => showHelp = true },
             };
 
             optionSet.Parse(args);
@@ -74,7 +69,6 @@ namespace GrazeDocs
             }
         }
 
-
         private static void PrintHelp(OptionSet options)
         {
             Console.WriteLine("Usage: grazedocs [options]");
@@ -84,25 +78,30 @@ namespace GrazeDocs
             options.WriteOptionDescriptions(Console.Out);
         }
 
-
         private static void SetOptions(GrazeDocsOptions options)
         {
             options.GrazeBinFolder = Path.GetDirectoryName(typeof(graze.Core).Assembly.Location);
             options.PublishFolder = null;
 
-            if (Debugger.IsAttached)
+            var rootDirectory = options.RootDirectory;
+
+            if (Debugger.IsAttached && string.IsNullOrWhiteSpace(options.RootDirectory))
             {
                 options.ThemeFolder = @"C:\dev\projects\GrazeDocs\samples\Single Page\_theme";
                 options.ConfigurationFile = @"C:\dev\projects\GrazeDocs\samples\Single Page\configuration.xml";
                 options.AssetsFolder = @"C:\dev\projects\GrazeDocs\samples\Single Page\_theme\assets";
+
+                return;
             }
-            else
+
+            if (string.IsNullOrWhiteSpace(rootDirectory))
             {
-                var currentFolder = Environment.CurrentDirectory;
-                options.ThemeFolder = Path.Combine(currentFolder, "_theme");
-                options.ConfigurationFile = Path.Combine(currentFolder, "configuration.xml");
-                options.AssetsFolder = Path.Combine(options.ThemeFolder, "assets");
+                rootDirectory = Environment.CurrentDirectory;
             }
+
+            options.ThemeFolder = Path.Combine(rootDirectory, "_theme");
+            options.ConfigurationFile = Path.Combine(rootDirectory, "configuration.xml");
+            options.AssetsFolder = Path.Combine(options.ThemeFolder, "assets");
         }
     }
 }

@@ -68,5 +68,11 @@
             get;
             set;
         }
+        
+        public string RootDirectory
+        {
+            get;
+            set;
+        }
     }
 }
